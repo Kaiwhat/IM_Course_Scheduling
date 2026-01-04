@@ -187,8 +187,6 @@ function viewCourseDetail(courseCode) {
 
 // 渲染課程表
 function renderSchedule() {
-  if (!allCourses.length) return;
-  
   const data = allCourses;
   const scheduleDiv = document.getElementById('schedule');
   scheduleDiv.innerHTML = '';
