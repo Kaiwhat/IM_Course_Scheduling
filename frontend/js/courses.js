@@ -46,13 +46,13 @@ const periodTimes = {
   'B': ['9:10', '10:00'],
   'C': ['10:10', '11:00'],
   'D': ['11:10', '12:00'],
-  'Z': ['12:10', '13:00'],
-  'E': ['13:10', '14:00'],
-  'F': ['14:10', '15:00'],
-  'G': ['15:10', '16:00'],
-  'H': ['16:10', '17:00'],
-  'I': ['17:10', '18:00'],
-  'J': ['18:10', '19:00']
+  'Z': ['12:10', '13:20'],
+  'E': ['13:30', '14:20'],
+  'F': ['14:30', '15:20'],
+  'G': ['15:30', '16:20'],
+  'H': ['16:30', '17:20'],
+  'I': ['17:30', '18:20'],
+  'J': ['18:30', '19:20']
 };
 
 // 從 URL 獲取年份學期
@@ -129,7 +129,8 @@ function createCourseContent(course, rowspan = 1) {
   
   // 專題課程不顯示學分數
   const creditDisplay = courseName.includes('資訊管理專題與個案') ? '' : (credit ? `(${credit})` : '');
-  const teacherDisplay = courseName.includes('資訊管理專題與個案') ? 'a. 簡宏宇 B24<br>b. 洪嘉良 管451<br>c. 黃俊哲、龔榮發 管203<br>d. 陳建宏 管204<br>e. 陳彥錚、陳小芬 管136<br>f. 戴榮賦、鄭育評 管106' : teacher;
+  const teacherDisplay = courseName.includes('資訊管理專題與個案') ? 'a. 鄭育評 管106<br>b. 黃俊哲 管203<br>c. 簡宏宇 管204<br>d. 洪嘉良、陳建宏 管441<br>e. 陳彥錚、陳小芬 管451' : teacher;
+  const classroomDisplay = courseName.includes('資訊管理專題與個案') ? '' : classroom;
   
   // 從 SemesterCourseName 中提取連結
   let courseUrl = '';
@@ -151,7 +152,7 @@ function createCourseContent(course, rowspan = 1) {
   // 決定星號顯示：如果是碩士班課程則顯示 ⭐
   const starDisplay = isMasterCourse ? ' ⭐' : '';
   
-  const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacherDisplay}<br>${classroom}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
+  const blockContent = `${courseName}${creditDisplay}${starDisplay}<br>${gradeDisplay}<br>${teacherDisplay}<br>${classroomDisplay}<br><a href="${courseUrl}" target="_blank" class="view-link">檢視</a>`;
   // 根據選別資料決定顏色
   let courseType = '';
   
